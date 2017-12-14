@@ -4,26 +4,27 @@
 </head>
 <body>
 Keia
-<button onclick="close();">Close iFrame</button>
-<script type="text/javascript">
-	window.onload = function() {
-		var parent = window.parent;
-		alert(parent);
-		console.log(parent);
-		
-		if(parent) {
-			var frame = parent.document.getElementById('hostedFrame');
-			alert(frame);
-			console.log(frame);
-			if(frame) {
-				frame.parentNode.removeChild(parent.document.getElementById('hostedFrame'));
-			}
-		}
-	}
-	
-	function close() {
-		window.parent.closeFrame();
-	}
-</script>
+<button id="closeBtn">Close iFrame</button>
+
+	<script type="text/javascript">
+        // addEventListener support for IE8
+        function bindEvent(element, eventName, eventHandler) {
+            if (element.addEventListener) {
+                element.addEventListener(eventName, eventHandler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent('on' + eventName, eventHandler);
+            }
+        }
+        // Send a message to the parent
+        var sendMessage = function (msg) {
+            // Make sure you are sending a string, and to stringify JSON
+            window.parent.postMessage(msg, '*');
+        };
+        var messageButton = document.getElementById('closeBtn');
+        // Send message data on every button click
+        bindEvent(messageButton, 'click', function (e) {
+            sendMessage("417");
+        });
+    </script>
 </body>
 </html>
