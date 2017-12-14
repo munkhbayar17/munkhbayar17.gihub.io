@@ -9,12 +9,10 @@ Keia
 	alert(parent);
 	
 	if(parent) {
-		var parent.querySelectorAll('iframe');
-		console.log(iframes);
-		if(iframes) {
-			for (var i = 0; i < iframes.length; i++) {
-				iframes[i].parentNode.removeChild(iframes[i]);
-			}
+		var frame = parent.document.getElementById('hostedFrame')
+		console.log(frame);
+		if(frame) {
+			frame.parentNode.removeChild(parent.document.getElementById('hostedFrame'));
 		}
 	}
 </script>
