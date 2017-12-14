@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+	<title>Keia</title>
+</head>
+<body>
+Keia
+<script type="text/javascript">
+	var iframes = window.parent.querySelectorAll('iframe');
+	console.log(iframes);
+	if(iframes) {
+		for (var i = 0; i < iframes.length; i++) {
+			iframes[i].parentNode.removeChild(iframes[i]);
+		}
+	}
+</script>
+</body>
+</html>
