@@ -4,16 +4,25 @@
 </head>
 <body>
 Keia
+<button onclick="close();">Close iFrame</button>
 <script type="text/javascript">
-	var parent = window.parent;
-	alert(parent);
-	
-	if(parent) {
-		var frame = parent.document.getElementById('hostedFrame')
-		console.log(frame);
-		if(frame) {
-			frame.parentNode.removeChild(parent.document.getElementById('hostedFrame'));
+	window.onload = function {
+		var parent = window.parent;
+		alert(parent);
+		console.log(parent);
+		
+		if(parent) {
+			var frame = parent.document.getElementById('hostedFrame');
+			alert(frame);
+			console.log(frame);
+			if(frame) {
+				frame.parentNode.removeChild(parent.document.getElementById('hostedFrame'));
+			}
 		}
+	}
+	
+	function close() {
+		window.parent.closeFrame();
 	}
 </script>
 </body>
