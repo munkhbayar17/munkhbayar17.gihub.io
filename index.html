@@ -5,11 +5,16 @@
 <body>
 Keia
 <script type="text/javascript">
-	var iframes = window.parent.querySelectorAll('iframe');
-	console.log(iframes);
-	if(iframes) {
-		for (var i = 0; i < iframes.length; i++) {
-			iframes[i].parentNode.removeChild(iframes[i]);
+	var parent = window.parent;
+	alert(parent);
+	
+	if(parent) {
+		var parent.querySelectorAll('iframe');
+		console.log(iframes);
+		if(iframes) {
+			for (var i = 0; i < iframes.length; i++) {
+				iframes[i].parentNode.removeChild(iframes[i]);
+			}
 		}
 	}
 </script>
